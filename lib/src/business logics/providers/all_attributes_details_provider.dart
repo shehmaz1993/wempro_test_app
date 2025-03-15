@@ -8,12 +8,6 @@ import '../utils/log_debugger.dart';
 class AllAttributeDetailsProvider extends ChangeNotifier{
 
 
-    List<AttributesResponseModel> propertyTypes = [];
-    List<AttributesResponseModel> bedrooms = [];
-    List<AttributesResponseModel> bathrooms = [];
-    List<AttributesResponseModel> cleaningFrequency = [];
-    List<AttributesResponseModel> garageOptions = [];
-    List<AttributesResponseModel> outdoorOptions = [];
 
     String? selectedPropertyType;
     String? selectedBedrooms;
@@ -78,16 +72,7 @@ class AllAttributeDetailsProvider extends ChangeNotifier{
         }
         notifyListeners();
     }
-    setSelectedGarageValue(bool val){
 
-        selectedGarageValue = val;
-        notifyListeners();
-    }
-    setSelectedOutDoorValue(bool val){
-
-        selectedOutdoorValue = val;
-        notifyListeners();
-    }
 
 
 }

@@ -49,6 +49,7 @@ class InputSummaryScreen extends StatelessWidget {
                       trailing: IconButton(
                           onPressed: (){
 
+                            Navigator.pop(context,'update');
                           },
                           icon: const Icon(Icons.arrow_forward_ios_outlined)
                       ),
