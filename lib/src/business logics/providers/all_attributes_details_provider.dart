@@ -20,7 +20,7 @@ class AllAttributeDetailsProvider extends ChangeNotifier{
     bool selectedGarageValue= false;
     bool selectedOutdoorValue = false;
     String errorMessage = '';
-
+    String? result;
     AttributesResponseModel _attributesResponseModel =
     AttributesResponseModel();
 
@@ -70,6 +70,11 @@ class AllAttributeDetailsProvider extends ChangeNotifier{
                 preferredTime = value;
                 break;
         }
+        notifyListeners();
+    }
+    setResult(String res){
+
+        result = res;
         notifyListeners();
     }
 

@@ -121,7 +121,7 @@ class _InputScreenState extends State<InputScreen> {
                             child: SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   if(_formKey.currentState!.validate()){
                                     if(attributeProvider.selectedGarage==null){
                                       showScaffoldMessage(context, 'Select an option of Garage cleaning');
@@ -142,10 +142,14 @@ class _InputScreenState extends State<InputScreen> {
                                       showScaffoldMessage(context, 'Selecting property is required');
                                     }
                                     else{
-                                      Navigator.push(
+                                      final result = await Navigator.push(
                                         context,
-                                        MaterialPageRoute(builder: (context) =>  InputSummaryScreen()),
+                                        MaterialPageRoute(builder: (context) => InputSummaryScreen()),
                                       );
+
+                                      if (result != null) {
+                                        attributeProvider.setResult(result);
+                                      }
                                     }
 
                                   }
@@ -157,7 +161,7 @@ class _InputScreenState extends State<InputScreen> {
                                   foregroundColor: Colors.white, backgroundColor: Colors.green, // Set the text color to white
                                   padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), // Optional padding
                                 ),
-                                child: const Text('Submit'),
+                                child: Text(attributeProvider.result==null?'Submit':"Update"),
                               ),
                             ),
                           )
